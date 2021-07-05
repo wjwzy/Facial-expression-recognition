@@ -34,7 +34,7 @@ def create_folder():
     print("目录创建完成！")
 
     # 将label和像素数据分离
-    data_division(c.root + '/facial_data.csv', c.root + '/labels.csv', c.root + '/images.csv', )
+    data_division('data/facial_data.csv', c.root + '/labels.csv', c.root + '/images.csv', )
 
     # 将像素整合成图像
     write_images(c.root + '/images.csv', c.images)
