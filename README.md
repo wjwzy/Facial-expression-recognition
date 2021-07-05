@@ -17,7 +17,10 @@ numpy==1.19.4
 
 ## 使用方法
 ### 一、准备数据集及相关配置
-数据是data目录下的facial_data.csv文件，文件中，写有图像和对应的标签；
+数据是data目录下的facial_data.csv文件，写有图像和对应的标签；
+
+数据集链接：https://pan.baidu.com/s/1mF9S973P5-l8AtGFPS-q0g 
+提取码：hxbw
 
 类别：{0: 'angry', 1: 'disgust', 2: 'fear', 3: 'happy', 4: 'sad', 5: 'surprise', 6: 'neutral'}
 
