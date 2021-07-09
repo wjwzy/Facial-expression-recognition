@@ -5,7 +5,7 @@ import torch.nn as nn
 import torch.optim as optim
 from config import config as c
 from process import FaceDataset, data_annotation
-from net.ResNet_ import resnet18
+from net.ResNet import resnet18
 
 
 device = c.device
