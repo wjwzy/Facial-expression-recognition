@@ -28,7 +28,7 @@ config = DictObj({
     'img_size': 112, # 图像大小
     'num_class' : 7, # 类别数
     'batch_size': 16, # 批量大小
-    'epoch' : 100, # 训练循环次数
+    'epoch' : 30, # 训练循环次数
     'learning_rate' : 0.0001, # 优化器学习率
     'wt_decay' : 0.001, # 权重衰退
     'device' : 'cuda:0', # 指定的GPU（cpu、0、1...）

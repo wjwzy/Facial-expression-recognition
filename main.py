@@ -72,7 +72,7 @@ def train(train_data, val_data, batch_size, epochs, num_class, learning_rate, wt
             acc_best = acc_val
             torch.save(model.state_dict(), c.model_save_path + '/model_net.pth')
 
-        print('the best acc is :{:.6f} '.format(epoch, acc_best))
+        print('the best acc is :{:.6f} '.format(acc_best))
         print('='*100)
 
 
