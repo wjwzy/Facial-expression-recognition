@@ -4,7 +4,7 @@ import torch
 import numpy as np
 from statistics import mode
 from config import config as c
-from net.ResNet import resnet18
+from net.ResNet import resnet18,resnet34
 
 
 def video_predict():
@@ -18,8 +18,8 @@ def video_predict():
         face_detection = cv2.CascadeClassifier(detection_model_path)
 
         # 加载模型与权重
-        model = resnet18(c.num_class)
-        model.load_state_dict(torch.load(c.model_path + '/model_net.pth'))
+        model = resnet34(c.num_class)
+        model.load_state_dict(torch.load(c.model_path + '/resnet34_model.pth'))
 
         device = c.device
         model.to(device)

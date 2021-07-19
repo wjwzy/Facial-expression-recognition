@@ -25,6 +25,12 @@ class FaceDataset(data.Dataset):
         # 图像数据用于训练，需为tensor类型，label用numpy或list均可
         face = cv2.imread(c.images + '/' + self.path[item],0)
         face = cv2.resize(face,(self.img_size,self.img_size))
+        # 50% 概率均值模糊
+        if random.random() > 0.5:
+            face = cv2.medianBlur(face, 9)
+        # 50% 概率翻转
+        if random.random() > 0.5:
+            face = cv2.flip(face, 1)
         # 直方图均衡化
         face_hist = cv2.equalizeHist(face)
         """

@@ -5,7 +5,7 @@ import torch.nn as nn
 import torch.optim as optim
 from config import config as c
 from process import FaceDataset, data_annotation
-from net.ResNet import resnet18
+from net.ResNet import resnet18,resnet34
 
 
 device = c.device
@@ -21,7 +21,7 @@ def train(train_data, val_data, batch_size, epochs, num_class, learning_rate, wt
     # 载入网络
     # model = FaceCNN(num_class)
     # 残差网络
-    model = resnet18(num_class)
+    model = resnet34(num_class)
     model.to(device)
 
     # 损失函数
@@ -62,15 +62,18 @@ def train(train_data, val_data, batch_size, epochs, num_class, learning_rate, wt
             # 更新参数
             optimizer.step()
 
-        print('===================================')
+        print('='*100)
         model.eval()  # 模型评估
         acc_val = validate(model, val_loader)
         print('After {} epochs , the acc_val is :{:.6f} '.format(epoch, acc_val))
-        print('===================================')
 
         if acc_val >= acc_best:
             # 保存模型
+            acc_best = acc_val
             torch.save(model.state_dict(), c.model_save_path + '/model_net.pth')
+
+        print('the best acc is :{:.6f} '.format(epoch, acc_best))
+        print('='*100)
 
 
 def validate(model, val_loader):
